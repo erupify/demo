@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erupify | Turn Your Online Reputation Into More Customers</title>
+    <meta name="description" content="Help your business improve online reputation, collect more Google reviews, and attract more customers with Erupify.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #FFFFFF;
+            --primary-light: #F3F4F6;
+            --accent: #FF9800;
+            --accent-hover: #E68A00;
+            --secondary: #FFB74D;
+            --bg: #1A1A1A;
+            --surface: #242424;
+            --text-main: #E5E7EB;
+            --text-light: #9CA3AF;
+            --border: #374151;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layout Utility */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 8px; }
+        .mb-2 { margin-bottom: 16px; }
+        .mb-3 { margin-bottom: 24px; }
+        .mb-4 { margin-bottom: 32px; }
+        .mb-5 { margin-bottom: 48px; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #111111;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(255, 152, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            box-shadow: 0 12px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background-color: var(--surface);
+        }
+        
+        .btn-success {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            flex: 1;
+        }
+
+        .mobile-only-btn {
+            display: none !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 180px 0 120px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .hero-blob-1 {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 152, 0, 0.15);
+            filter: blur(100px);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .hero-blob-2 {
+            position: absolute;
+            top: 30%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 183, 77, 0.1);
+            filter: blur(80px);
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out reverse;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .value-prop {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 152, 0, 0.15);
+            color: var(--accent);
+            border-radius: var(--radius-full);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Problems Section */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .problem-card {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 152, 0, 0.15);
+            color: var(--accent);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            background-color: var(--surface);
+            border-radius: 40px;
+            margin: 0 24px;
+            padding: 100px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .solution-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            background: var(--bg);
+            transition: var(--transition);
+        }
+
+        .solution-item:hover {
+            background: #2A2A2A;
+        }
+
+        .solution-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background: var(--accent);
+            color: white;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* How It Works Section */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 64px;
+            position: relative;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: var(--shadow-sm);
+            font-family: 'Space Grotesk', sans-serif;
+            transition: var(--transition);
+        }
+
+        .step-card:hover .step-number {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .step-card h3 {
+            margin-bottom: 12px;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            background: linear-gradient(135deg, #111111 0%, #1A1A1A 100%);
+            color: white;
+            padding: 120px 0;
+            overflow: hidden;
+        }
+        
+        .demo-section h2 { color: white; }
+        .demo-section p { color: #9CA3AF; }
+
+        .demo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        .demo-content {
+            flex: 1;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: var(--bg);
+            border: 10px solid #374151;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+        }
+
+        .phone-mockup-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 24px;
+            background: #374151;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 10;
+        }
+
+        .mockup-inner {
+            padding: 40px 20px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--primary);
+        }
+        
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .mockup-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--surface);
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .mockup-stars {
+            color: #F59E0B;
+            margin-bottom: 8px;
+        }
+
+        .mockup-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            margin-bottom: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: var(--shadow-sm);
+            font-size: 14px;
+        }
+
+        .mockup-btn.google {
+            background: #242424;
+            border: 1px solid var(--border);
+        }
+        
+        .mockup-btn.google svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .mockup-btn.primary-mock {
+            background: var(--accent);
+            color: #111111;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            padding: 40px 32px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px) !important;
+            box-shadow: var(--shadow-md);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            transform: scale(1.05) !important;
+            z-index: 2;
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-8px) !important;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 4px 16px;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 16px 0;
+        }
+
+        .pricing-features {
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .pricing-features svg {
+            color: var(--secondary);
+            flex-shrink: 0;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .testimonial-card {
+            background: var(--surface);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .stars {
+            color: #F59E0B;
+            margin-bottom: 16px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .client-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--accent);
+            object-fit: cover;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 100px 24px;
+            background: var(--surface);
+            border-radius: 40px;
+            margin: 0 24px 100px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .final-cta h2 {
+            font-size: 40px;
+            margin-bottom: 24px;
+        }
+
+        /* Contact & Footer */
+        footer {
+            background: #111111;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-text {
+            color: #E2E8F0;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .footer-socials a {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .footer-socials a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            text-align: center;
+            color: #64748B;
+            font-size: 14px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Animations Utility Classes */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        /* Guarantee */
+        .guarantee-note {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .guarantee-banner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-top: 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px 32px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .guarantee-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .guarantee-item div {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .guarantee-item strong {
+            font-size: 14px;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .guarantee-item span {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .guarantee-sep {
+            width: 1px;
+            height: 40px;
+            background: var(--border);
+            margin: 0 16px;
+            flex-shrink: 0;
+        }
+
+        /* Billing Toggle */
+        .billing-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 32px auto 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-full);
+            padding: 6px;
+            width: fit-content;
+        }
+
+        .toggle-btn {
+            position: relative;
+            padding: 10px 28px;
+            border-radius: var(--radius-full);
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .toggle-btn.active {
+            background: var(--accent);
+            color: #111111;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+        }
+
+        .annual-save-badge {
+            background: #111111;
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.5px;
+        }
+
+        .toggle-btn:not(.active) .annual-save-badge {
+            background: var(--accent);
+            color: #111111;
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: -8px;
+            margin-bottom: 8px;
+            min-height: 20px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background: var(--surface);
+            border: none;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: pointer;
+            text-align: left;
+            gap: 16px;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: #2A2A2A;
+        }
+
+        .faq-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 152, 0, 0.15);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 24px;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Theme Carousel inside Phone */
+        .theme-carousel {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .theme-track {
+            display: flex;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+
+        .theme-slide {
+            min-width: 100%;
+            background: var(--t-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 36px 20px 16px;
+            gap: 8px;
+        }
+
+        .theme-slide-img {
+            min-width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .theme-slide-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .ts-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .ts-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .ts-sub {
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .ts-stars {
+            color: #F59E0B;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .ts-btn {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: default;
+        }
+
+        .ts-btn-google {
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .ts-btn-outline {
+            background: transparent;
+            border: 1.5px solid;
+        }
+
+        .ts-btn-solid {
+            margin-top: 2px;
+        }
+
+        .g-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .ts-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: auto;
+            padding-top: 8px;
+        }
+
+        .theme-nav {
+            display: none; /* arrows are now outside the phone */
+        }
+
+        .phone-dots-bar {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 20;
+        }
+
+        .theme-arrow {
+            background: rgba(255,152,0,0.18);
+            border: 1.5px solid rgba(255,152,0,0.35);
+            color: #FF9800;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .theme-arrow:hover {
+            background: rgba(255,152,0,0.35);
+            transform: scale(1.1);
+        }
+
+        .theme-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .theme-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #444;
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .theme-dot.active {
+            background: #FF9800;
+            transform: scale(1.3);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-bar-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .trust-headline {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .trust-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .trust-item-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .trust-item-logo svg {
+            flex-shrink: 0;
+        }
+
+        .trust-stars {
+            display: flex;
+            gap: 2px;
+            color: #F59E0B;
+            font-size: 16px;
+        }
+
+        .trust-rating {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .trust-divider {
+            width: 1px;
+            height: 48px;
+            background: var(--border);
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .trust-stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .trust-stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 44px; }
+            .problems-grid, .solutions-grid, .steps-grid, .pricing-grid, .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .pricing-card.popular { transform: none; }
+            .demo-wrapper { flex-direction: column; text-align: center; }
+            .nav-links { gap: 16px; }
+            .nav-links a { font-size: 14px; }
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only-btn { display: none !important; }
+            .mobile-only-btn { display: inline-flex !important; margin-top: 16px; }
+            .header-actions { flex: none; }
+            .nav-logo { flex: none; }
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--surface);
+                flex-direction: column;
+                padding: 24px;
+                box-shadow: var(--shadow-md);
+                clip-path: circle(0% at top right);
+                transition: all 0.4s ease-in-out;
+            }
+            .nav-links.active {
+                clip-path: circle(150% at top right);
+            }
+            .mobile-menu-btn { display: block; }
+            
+            .hero { padding: 140px 0 80px; }
+            .hero h1 { font-size: 36px; }
+            .hero-ctas { flex-direction: column; }
+            
+            .problems-grid, .solutions-grid, .steps-grid, .pricing-grid, .testimonials-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solutions, .final-cta { margin: 0; border-radius: 0; }
+            .trust-divider { display: none; }
+            .trust-logos { gap: 32px; }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: var(--surface);
+            width: 100%;
+            max-width: 450px;
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            position: relative;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 28px;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+            padding: 4px;
+        }
+
+        .modal-close:hover {
+            color: white;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .modal-header h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .modal-header p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            color: white;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-logo">
+          <img src="https://i.postimg.cc/TPv927B8/erupify-Logo.png" alt="erupify">
+        </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#problem">The Problem</a>
+                <a href="#solution">Solution</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#tools" style="display: flex; align-items: center; gap: 6px;">Tools <span style="background: var(--accent); color: #111; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 10px; text-transform: uppercase; line-height: 1;">New</span></a>
+                <a href="#contact" class="btn btn-primary mobile-only-btn" style="padding: 10px 20px; width: 100%;">Get Started</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-primary desktop-only-btn" style="padding: 10px 20px;">Get Started</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-blob-1"></div>
+            <div class="hero-blob-2"></div>
+        </div>
+        <div class="container hero-content reveal-up">
+            <div class="value-prop" style="display: inline-flex; align-items: center; gap: 6px;">Turn your online reputation into a customer-acquisition machine <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg></div>
+            <h1>Turn Your Online Reputation Into More Customers</h1>
+            <p>We help local businesses collect more Google Reviews effortlessly, build massive trust, and rank higher on local search.</p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-primary">Get a Free Demo</a>
+                <a href="#demo" class="btn btn-secondary">See How It Works ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-bar-inner reveal-up">
+                <p class="trust-headline">Trusted by 100+ Local Businesses Across Morocco</p>
+                <div class="trust-logos">
+                    <!-- Google Rating -->
+                    <div class="trust-item">
+                        <div class="trust-item-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                            Google
+                        </div>
+                        <div class="trust-stars">★★★★★</div>
+                        <span class="trust-rating">4.9/5 from 80+ reviews</span>
+                    </div>
+
+                    <div class="trust-divider"></div>
+
+                    <!-- Trustpilot Rating -->
+                    <div class="trust-item">
+                        <div class="trust-item-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 8.9H24l-7.4 5.4 2.9 8.9L12 19.8l-7.4 5.4 2.9-8.9L0 10.9h9.1L12 2z" fill="#00B67A"/></svg>
+                            Trustpilot
+                        </div>
+                        <div class="trust-stars">★★★★★</div>
+                        <span class="trust-rating">Excellent · 4.8/5</span>
+                    </div>
+
+                    <div class="trust-divider"></div>
+
+                    <!-- Stat: Businesses -->
+                    <div class="trust-stat">
+                        <div class="trust-stat-number">100+</div>
+                        <div class="trust-stat-label">Businesses Served</div>
+                    </div>
+
+                    <div class="trust-divider"></div>
+
+                    <!-- Stat: Reviews Generated -->
+                    <div class="trust-stat">
+                        <div class="trust-stat-number">10,000+</div>
+                        <div class="trust-stat-label">Reviews Generated</div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section container">
+        <div class="text-center reveal-up">
+            <h2 class="mb-2">Most Businesses Lose Customers Because of Weak Online Reputation</h2>
+            <p style="color: var(--text-light);">Are you missing out on revenue because your competitors look better online?</p>
+        </div>
+        
+        <div class="problems-grid">
+            <div class="problem-card reveal-up" style="transition-delay: 0.1s;">
+                <div class="problem-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <h3>Too few Google Reviews</h3>
+                <p style="color: var(--text-light); margin-top: 10px;">Customers hesitate to trust a business with zero or barely any reviews. They simply go to the next option.</p>
+            </div>
+            
+            <div class="problem-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="problem-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        <line x1="9" y1="10" x2="15" y2="10"></line>
+                    </svg>
+                </div>
+                <h3>Negative reviews hurt sales</h3>
+                <p style="color: var(--text-light); margin-top: 10px;">A few bad ratings without a strong stream of positive ones can drastically lower your overall star rating.</p>
+            </div>
+
+            <div class="problem-card reveal-up" style="transition-delay: 0.3s;">
+                <div class="problem-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                </div>
+                <h3>Competitors ranking higher</h3>
+                <p style="color: var(--text-light); margin-top: 10px;">Google favors businesses with high ratings and frequent new reviews in local search maps.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solutions section">
+        <div class="container">
+            <div class="text-center reveal-up">
+                <h2 class="mb-2">How Erupify Helps Your Business Grow</h2>
+                <p style="color: var(--text-light);">We automate your review collection so you can focus on running your business.</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-item reveal-up">
+                    <div class="solution-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Collect Reviews Easily</h3>
+                        <p style="color: var(--text-light); margin-top: 8px;">Never beg for reviews again. We provide simple tools that make it incredibly easy for customers to leave 5-star feedback.</p>
+                    </div>
+                </div>
+
+                <div class="solution-item reveal-up" style="transition-delay: 0.1s;">
+                    <div class="solution-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Redirect Happy Customers</h3>
+                        <p style="color: var(--text-light); margin-top: 8px;">Our smart routing sends satisfied customers straight to Google, while capturing poor feedback privately before it goes online.</p>
+                    </div>
+                </div>
+
+                <div class="solution-item reveal-up" style="transition-delay: 0.2s;">
+                    <div class="solution-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Build Massive Trust</h3>
+                        <p style="color: var(--text-light); margin-top: 8px;">Stand out in your local area with a glowing reputation that naturally attracts new clients reading your amazing reviews.</p>
+                    </div>
+                </div>
+
+                <div class="solution-item reveal-up" style="transition-delay: 0.3s;">
+                    <div class="solution-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Improve Local SEO</h3>
+                        <p style="color: var(--text-light); margin-top: 8px;">More reviews mean higher rankings on Google Maps, driving massive amounts of organic, free foot traffic to your door.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section container">
+        <div class="text-center reveal-up">
+            <h2 class="mb-2">Automate Your Reputation in 3 Steps</h2>
+            <p style="color: var(--text-light);">We make it frictionless for your customers and entirely hands-off for you.</p>
+        </div>
+
+        <div class="steps-grid">
+            <!-- Line connecting steps -->
+            <div style="position: absolute; top: 32px; left: 16%; right: 16%; height: 2px; background: var(--border); z-index: 0;" class="hide-mobile"></div>
+
+            <div class="step-card reveal-up">
+                <div class="step-number">01</div>
+                <h3>Smart Page Setup</h3>
+                <p style="color: var(--text-light);">We create a beautifully designed, branded landing page optimized to convert your customers into reviewers.</p>
+            </div>
+
+            <div class="step-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="step-number">02</div>
+                <h3>Share With Customers</h3>
+                <p style="color: var(--text-light);">Customers scan a QR code at your location or click a link sent via SMS/Email after their purchase.</p>
+            </div>
+
+            <div class="step-card reveal-up" style="transition-delay: 0.4s;">
+                <div class="step-number">03</div>
+                <h3>Watch Reviews Grow</h3>
+                <p style="color: var(--text-light);">Happy clients tap easily to leave 5-star Google reviews, skyrocketing your online rating instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container reveal-up">
+            <div class="demo-wrapper">
+                <div class="demo-content">
+                    <h2 class="mb-3">See It In Action</h2>
+                    <p class="mb-4" style="font-size: 18px; line-height: 1.8; max-width: 500px;">
+                        This is exactly what your customers will see. A frictionless, mobile-optimized experience designed to capture positive sentiment and turn it into public praise.
+                    </p>
+                    <ul style="margin-bottom: 32px;">
+                        <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Custom branded with your logo
+                        </li>
+                        <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Direct link to your Google Business Profile
+                        </li>
+                        <li style="display: flex; gap: 12px; margin-bottom: 16px; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Links to your social media & website
+                        </li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="background: white; color: #111111;">Get Your Custom Page</a>
+                </div>
+
+                <!-- Phone Mockup wrapped with flanking arrows -->
+                <div class="phone-mockup-wrap">
+                    <!-- Left Arrow -->
+                    <button class="theme-arrow" onclick="slideTheme(-1)">&#8592;</button>
+
+                    <!-- Phone -->
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+
+                        <!-- Theme Carousel -->
+                        <div class="theme-carousel">
+                            <div class="theme-track" id="themeTrack">
+
+                                <!-- Theme 1 — ضع رابط الصورة الأولى هنا -->
+                                <div class="theme-slide-img">
+                                    <img src="https://i.postimg.cc/qR9Q93zb/fb.jpg" alt="Theme 1 - Dark Orange">
+                                </div>
+
+                                <!-- Theme 2 — ضع رابط الصورة الثانية هنا -->
+                                <div class="theme-slide-img">
+                                    <img src="https://i.postimg.cc/v8V053N3/insta.jpg" alt="Theme 2 - Dark Purple">
+                                </div>
+
+                                <!-- Theme 3 — ضع رابط الصورة الثالثة هنا -->
+                                <div class="theme-slide-img">
+                                    <img src="https://i.postimg.cc/Cxm7wtRF/t.jpg" alt="Theme 3 - Light Teal">
+                                </div>
+
+                                <!-- Theme 4 — ضع رابط الصورة الرابعة هنا -->
+                                <div class="theme-slide-img">
+                                    <img src="https://i.postimg.cc/3RDFCxnh/y.jpg" alt="Theme 4 - Light Rose">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Dots overlay at bottom of phone -->
+                        <div class="phone-dots-bar" id="themeDots"></div>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button class="theme-arrow" onclick="slideTheme(1)">&#8594;</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section container">
+        <div class="text-center reveal-up">
+            <h2 class="mb-2">Trusted by Local Businesses</h2>
+            <p style="color: var(--text-light);">See how Erupify has transformed our clients' online presence.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal-up">
+                <div class="stars">★★★★★</div>
+                <p>"Before Erupify, we had 12 reviews. Within 3 months of placing their QR codes on our tables, we hit over 150 5-star reviews. Our foot traffic has never been better!"</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marco Rossi" class="client-avatar">
+                    <div>
+                        <h4 style="font-size: 16px; margin-bottom: 2px;">Marco Rossi</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Owner of Bella Pizza</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal-up" style="transition-delay: 0.1s;">
+                <div class="stars">★★★★★</div>
+                <p>"As a dental clinic, trust is everything. Erupify automates our review requests perfectly. We now rank #1 on Google Maps for 'Dentist near me' in our city."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Sarah Jenkins" class="client-avatar">
+                    <div>
+                        <h4 style="font-size: 16px; margin-bottom: 2px;">Dr. Sarah Jenkins</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Manager at Bright Smiles Clinic</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="stars">★★★★★</div>
+                <p>"The negative feedback capture is a lifesaver. It lets me fix a client's issue privately before it ever hits Google. Erupify is an absolute game changer."</p>
+                <div class="client-info">
+                    <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="David Chen" class="client-avatar">
+                    <div>
+                        <h4 style="font-size: 16px; margin-bottom: 2px;">David Chen</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Real Estate Agent at Prime Realty</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section container">
+        <div class="text-center reveal-up">
+            <h2 class="mb-2">Simple, Transparent Pricing</h2>
+            <p style="color: var(--text-light);">Invest in your reputation and watch your ROI explode.</p>
+        </div>
+
+        <!-- Billing Toggle -->
+        <div class="billing-toggle reveal-up">
+            <button id="btn-monthly" class="toggle-btn" onclick="setBilling('monthly')">Monthly</button>
+            <button id="btn-annual" class="toggle-btn active" onclick="setBilling('annual')">
+                Annual
+                <span id="annual-badge" class="annual-save-badge">Save 20%</span>
+            </button>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="pricing-card reveal-up" data-monthly="7.99">
+                <h3>Starter</h3>
+                <p style="color: var(--text-light); font-size: 14px; margin-top: 8px;">For small local businesses.</p>
+                <div class="price">
+                    <span class="price-amount">$588</span>
+                    <span class="price-period" style="font-size: 16px; color: var(--text-light); font-weight: 400;">/yr</span>
+                </div>
+                <div class="price-note"></div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Basic review page setup</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Direct Google linking</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Standard QR Code</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Email Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%;">Get Starter</a>
+                <p class="guarantee-note" style="display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Cancel anytime · No contracts</p>
+            </div>
+
+            <!-- Business -->
+            <div class="pricing-card popular reveal-up" style="transition-delay: 0.1s;" data-monthly="99">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Business</h3>
+                <p style="color: var(--text-light); font-size: 14px; margin-top: 8px;">For growing establishments.</p>
+                <div class="price">
+                    <span class="price-amount">$1,188</span>
+                    <span class="price-period" style="font-size: 16px; color: var(--text-light); font-weight: 400;">/yr</span>
+                </div>
+                <div class="price-note"></div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Advanced review system</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Negative feedback capture</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom branded QR Code</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Monthly analytics report</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">Get Business</a>
+                <p class="guarantee-note" style="color: var(--accent); display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> 14-Day Money-Back Guarantee</p>
+            </div>
+
+            <!-- Pro -->
+            <div class="pricing-card reveal-up" style="transition-delay: 0.2s;" data-monthly="199">
+                <h3>Pro</h3>
+                <p style="color: var(--text-light); font-size: 14px; margin-top: 8px;">Full reputation management.</p>
+                <div class="price">
+                    <span class="price-amount">$2,388</span>
+                    <span class="price-period" style="font-size: 16px; color: var(--text-light); font-weight: 400;">/yr</span>
+                </div>
+                <div class="price-note"></div>
+                <ul class="pricing-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Everything in Business</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> SMS/Email API Integrations</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Automated review replies</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Priority 24/7 Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%;">Get Pro</a>
+                <p class="guarantee-note" style="display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Cancel anytime · No contracts</p>
+            </div>
+        </div>
+
+        <!-- Guarantee Banner -->
+        <div class="guarantee-banner reveal-up">
+            <div class="guarantee-item">
+                <span class="guarantee-icon" style="display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+                <div>
+                    <strong>14-Day Money-Back Guarantee</strong>
+                    <span>Not satisfied? Full refund, no questions asked.</span>
+                </div>
+            </div>
+            <div class="guarantee-sep"></div>
+            <div class="guarantee-item">
+                <span class="guarantee-icon" style="display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg></span>
+                <div>
+                    <strong>No Long-Term Contracts</strong>
+                    <span>Cancel anytime, stay because you love the results.</span>
+                </div>
+            </div>
+            <div class="guarantee-sep"></div>
+            <div class="guarantee-item">
+                <span class="guarantee-icon" style="display: flex; align-items: center; justify-content: center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+                <div>
+                    <strong>Setup in 24 Hours</strong>
+                    <span>We handle everything. You just approve it.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section container">
+        <div class="text-center reveal-up">
+            <h2 class="mb-2">Frequently Asked Questions</h2>
+            <p style="color: var(--text-light);">Got questions? We've got answers.</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item reveal-up">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is this compliant with Google's Terms of Service?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Absolutely! We never create fake reviews or incentivize customers to leave positive feedback. Our system simply makes it <strong>easier</strong> for your real, satisfied customers to share their experience on Google. This is 100% compliant with Google's guidelines.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal-up" style="transition-delay: 0.05s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Do I need to be tech-savvy to use Erupify?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Not at all! We handle the entire setup for you. Once your branded page and QR code are ready, all you need to do is share them with your customers — no technical knowledge required. It's as simple as showing a QR code or sending a link.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal-up" style="transition-delay: 0.1s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How does Erupify separate negative feedback from positive reviews?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Our smart routing system asks customers about their experience first. Happy customers are directed straight to your Google review page. Unhappy customers are routed to a private feedback form instead, giving you the chance to resolve issues <strong>before</strong> they become public negative reviews.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal-up" style="transition-delay: 0.15s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How quickly will I see results?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Most of our clients start seeing new 5-star reviews within the <strong>first week</strong>. Within 2-3 months, you can expect a significant boost in your overall Google rating and local search ranking, leading to more foot traffic and sales.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal-up" style="transition-delay: 0.2s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Can I cancel my subscription at any time?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes! There are no long-term contracts. You can cancel your subscription at any time. However, most of our clients stay because they see a clear and measurable return on investment from day one.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item reveal-up" style="transition-delay: 0.25s;">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What if I already have negative reviews on Google?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        That's exactly why you need Erupify! By generating a consistent stream of new positive reviews, your overall star rating will improve quickly. The negative reviews get buried under an avalanche of genuine 5-star feedback from happy customers.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta reveal-up">
+        <h2>Start Growing Your Reputation Today</h2>
+        <p style="color: var(--text-light); font-size: 18px; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Stop losing customers to competitors with better reviews. Join the smart businesses automating their growth.
+        </p>
+        <div class="hero-ctas">
+            <a href="#demo" class="btn btn-primary">Get Your Demo</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer & Contact -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-center-content reveal-up">
+                <a href="#" class="footer-logo">
+                    <img src="https://i.postimg.cc/TPv927B8/erupify-Logo.png" alt="Erupify">
+                </a>
+                <p class="footer-text">Turn your online reputation into a powerful customer-acquisition machine. Collect reviews, build trust, and dominate local search.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/erupify2026/" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61575374527595" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=212631645817" aria-label="WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                    <a href="mailto:erupify@proton.me" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; <span id="year"></span> Erupify. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Set current year
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navLinks = document.getElementById('nav-links');
+
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Sticky Header Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Scroll Reveal Animation (Intersection Observer)
+            const revealElements = document.querySelectorAll('.reveal-up');
+            
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Stop observing once revealed
+                    }
+                });
+            };
+
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // ── Pricing Toggle ──────────────────────────────────────
+            // Change ANNUAL_DISCOUNT to set the % off (0 = no discount shown)
+            const ANNUAL_DISCOUNT = 20;
+
+            window.setBilling = function(mode) {
+                const isAnnual = mode === 'annual';
+
+                // Toggle button styles
+                document.getElementById('btn-monthly').classList.toggle('active', !isAnnual);
+                document.getElementById('btn-annual').classList.toggle('active', isAnnual);
+
+                // Show/hide badge in annual button
+                const badge = document.getElementById('annual-badge');
+                badge.style.display = (isAnnual && ANNUAL_DISCOUNT > 0) ? 'inline-block' : 'none';
+
+                // Update each pricing card
+                document.querySelectorAll('.pricing-card[data-monthly]').forEach(card => {
+                    const monthly = parseFloat(card.dataset.monthly);
+                    const amountEl  = card.querySelector('.price-amount');
+                    const periodEl  = card.querySelector('.price-period');
+                    const noteEl    = card.querySelector('.price-note');
+
+                    if (isAnnual) {
+                        const annual = monthly * 12;
+                        const discounted = ANNUAL_DISCOUNT > 0
+                            ? Math.round(annual * (1 - ANNUAL_DISCOUNT / 100))
+                            : annual;
+                        amountEl.textContent = '$' + discounted.toLocaleString();
+                        periodEl.textContent  = '/yr';
+                        noteEl.textContent    = ANNUAL_DISCOUNT > 0
+                            ? 'instead of $' + annual.toLocaleString() + '/yr'
+                            : '';
+                    } else {
+                        amountEl.textContent = '$' + monthly.toLocaleString();
+                        periodEl.textContent  = '/mo';
+                        noteEl.textContent    = '';
+                    }
+                });
+            }
+
+            // Boot with Annual selected & apply initial prices
+            setBilling('annual');
+
+            // ── Theme Carousel ──────────────────────────────────
+            const track = document.getElementById('themeTrack');
+            const dotsContainer = document.getElementById('themeDots');
+            const totalSlides = track ? track.children.length : 0;
+            let currentSlide = 0;
+
+            if (track && totalSlides > 0) {
+                // Build dots
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'theme-dot' + (i === 0 ? ' active' : '');
+                    dot.onclick = () => goToSlide(i);
+                    dotsContainer.appendChild(dot);
+                }
+
+                function goToSlide(index) {
+                    currentSlide = (index + totalSlides) % totalSlides;
+                    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    document.querySelectorAll('.theme-dot').forEach((d, i) => {
+                        d.classList.toggle('active', i === currentSlide);
+                    });
+                }
+
+                window.slideTheme = function(dir) { goToSlide(currentSlide + dir); };
+
+                // Auto-advance every 3s
+                setInterval(() => goToSlide(currentSlide + 1), 3000);
+            }
+
+            // ── FAQ Accordion ──────────────────────────────────────
+            window.toggleFaq = function(btn) {
+                const item = btn.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const isOpen = item.classList.contains('open');
+
+                // Close all items first
+                document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-answer').style.maxHeight = null;
+                });
+
+                // Toggle clicked item
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            };
+            // ── Form Modal Logic ───────────────────────────────────
+            const modal = document.getElementById('contactModal');
+            const contactLinks = document.querySelectorAll('a[href="#contact"]');
+            
+            window.openModal = function() {
+                modal.classList.add('active');
+            };
+
+            window.closeModal = function() {
+                modal.classList.remove('active');
+                // Reset form state after closing
+                setTimeout(() => {
+                    document.getElementById('leadForm').style.display = 'block';
+                    document.getElementById('formSuccess').style.display = 'none';
+                    document.getElementById('leadForm').reset();
+                }, 300);
+            };
+
+            // Intercept all #contact links
+            contactLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal();
+                });
+            });
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Handle form submission
+            window.submitForm = function(e) {
+                e.preventDefault();
+                // In a real app, send data to backend here.
+                
+                // Show success message
+                document.getElementById('leadForm').style.display = 'none';
+                document.getElementById('formSuccess').style.display = 'block';
+            };
+        });
+    </script>
+
+    <!-- Lead Gen Modal -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <h3>Get Your Free Demo</h3>
+                <p>Fill out the form below and we'll be in touch shortly.</p>
+            </div>
+            <form id="leadForm" class="modal-form" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="business">Business Name</label>
+                    <input type="text" id="business" placeholder="The Best Cafe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number (Optional)</label>
+                    <input type="tel" id="phone" placeholder="+212 600 000 000">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Get My Free Demo</button>
+            </form>
+            <div id="formSuccess" class="form-success" style="display: none;">
+                <div class="success-icon">✓</div>
+                <h4>Thank You!</h4>
+                <p>Your request has been received. Our team will contact you within 24 hours.</p>
+                <button type="button" class="btn btn-secondary" onclick="closeModal()" style="width: 100%; margin-top: 16px;">Close</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
